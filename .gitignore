@@ -1,0 +1,7 @@
+java kernel/java/dependency-licenses/maven-model-builder-3.6.0.jar/META-INF/NOTICE
+
+venv/
+
+demo/
+
+.vscode/

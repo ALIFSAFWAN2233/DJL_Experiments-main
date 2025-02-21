@@ -11,15 +11,10 @@ import java.util.Map;
 import java.util.Optional;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
-import org.springframework.stereotype.Service;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 
-
+// Test loading a sklearn trained model in onnx format
 public class OnnxModelService {
     private OrtEnvironment env;
     private OrtSession session;
@@ -71,3 +66,21 @@ public class OnnxModelService {
     }
     
 }
+
+
+// Test loading onnx converted pytorch model 
+# Load the ONNX model
+sess = rt.InferenceSession("resnet.onnx", providers=["CPUExecutionProvider"])
+
+# Get input and output names
+input_name = sess.get_inputs()[0].name
+output_name = sess.get_outputs()[0].name  # This is the output tensor
+
+# Create a dummy input (batch size 1, 3 channels, 96x96 image)
+dummy_input = np.random.rand(1, 3, 96, 96).astype(np.float32)
+
+# Run inference
+output_tensor = sess.run([output_name], {input_name: dummy_input})[0]
+
+# Check the shape of the output tensor
+print(f"Output Tensor Shape: {output_tensor.shape}")  # Expected: (1, 1000)

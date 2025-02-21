@@ -2,6 +2,7 @@ java kernel/java/dependency-licenses/maven-model-builder-3.6.0.jar/META-INF/NOTI
 
 venv/
 
-
-
+data/
+data/stl10_binary
 .vscode/
+.git/index.lock

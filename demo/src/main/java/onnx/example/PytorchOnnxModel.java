@@ -112,7 +112,7 @@ public class PytorchOnnxModel {
     public static void main(String[] args) {
         try {
             // Specify the image file path
-            String imagePath = "demo/src/main/java/onnx/example/airplane.jpeg"; // Change this to your image path
+            String imagePath = "demo/src/main/java/onnx/example/sampleImages/airplane.jpeg"; 
             new PytorchOnnxModel(imagePath);
         } catch (Exception e) {
             e.printStackTrace();
